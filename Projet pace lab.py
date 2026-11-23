@@ -12,14 +12,16 @@ class Parcours :
         self.pente = pente ## pente constante de la section
         self.vent = vent ## vent constant soufflant sur la section
 ##création du cycliste
+
 class Cycliste :
-    def __init__ (self, puissance, position, vitesse, resi_mvt,rendement,masse ):
+    def __init__ (self, puissance, position, vitesse, resi_mvt,rendement,masse,watts_kilo):
         self.puissance= puissance
         self.position = position
         self.vitesse= vitesse
         self.resi_mvt = resi_mvt ## coefficient de résistance au movement 
         self.rendement = rendement ## coefficient de rendement 
-        self.masse= masse
+        self.masse= masse 
+        self.watts_kilo= self.puissance/self.masse
         
         
 class Déplacement(Parcours, Cycliste) : ##mouvement du cycliste

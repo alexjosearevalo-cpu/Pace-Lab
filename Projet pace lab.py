@@ -43,3 +43,5 @@ class Déplacement(Parcours, Cycliste) : ##mouvement du cycliste
         ## 1.204 est la densité de l'air à 20°C, 0.3 est la moyenne de la trainée 
     def acceleration(self):
         acceleration = (1/Cycliste.masse)*(self.F_motrice() + self.F_gravite() + self.F_resi_mvt()+ self.F_air())
+Gui = Cycliste(438,23.2,0.05,97.5,70.8) ## coefficient sur bitume
+parcours_1= Parcours(13700,8.12,10,0)

@@ -57,3 +57,18 @@ Gui = Cycliste(438,0,40,0.004,0.975,70.8,0.3) ## coefficient sur bitume
 Alpe_D_huez = Parcours(13700,8.12,3,0,1.104)
 deplacement_1 = Deplacement(Gui,Alpe_D_huez)
 deplacement_1.Temps()
+## Calcul de la puissance a partir du temps
+def temps(P):
+    Gui.puissance = P                   # on change la puissance du cycliste
+    return deplacement_1.Temps()    # on lance la simulation et on renvoie le temps
+t_cible=2100
+h=0.01
+def newton(f, df, P, precision = 0.1):
+   for iterations in range(1, 30):
+      dP = f(P) / df(P)
+      P = P - dP
+      if abs(dP) < precision:
+          return P, iterations
+def my_f(P):  return temps(P) − t_cible
+def my_df(P): return  (temps(P + h) − temps(P))/ h
+print(newton(my_f, my_df, 0))
